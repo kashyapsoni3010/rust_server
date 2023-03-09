@@ -1,0 +1,39 @@
+
+extern crate reqwest;
+fn main() {
+    let body = reqwest::get("http://127.0.0.1:7878/drama")
+        .expect("Failed")
+        .text()
+        .expect("No text");
+    println!("{}", body)
+    
+}
+// fn handle_connection(mut stream: TcpStream, map: HashMap<String, String>){
+//     //store the incoming request
+//     let mut request=[0;1024];
+//     //read input stream contents and store them in request 
+//     stream.read(&mut request).unwrap();
+//     //store required info of requested page from request
+//     let req_page = String::from_utf8_lossy(&request[5..12]).to_string();
+//     //-------
+//     println!("{}", String::from_utf8_lossy(&request[..]).to_string());
+//     //to store html filename for requested page
+//     let mut filename ="";
+//     //obtain filename from map for the request
+//     match map.get(&req_page) {
+//         Some(page) => filename = page, 
+//         None => filename = "notfound.html", 
+//     }
+//     //create post req components
+//     let contents = fs::read_to_string(filename).unwrap();
+//     let header = "HTTP/1.1 200 OK";
+//     let len = contents.len();
+//     let response = format!("{}\r\nContent-Length: {}\r\n\r\n{}",header, len, contents);
+//     //write response to the tcpstream
+//     stream.write(response.as_bytes()).unwrap();
+//     //send the response
+//     stream.flush().unwrap();
+    
+// }
+
+// fn handle()
